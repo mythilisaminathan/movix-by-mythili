@@ -1,0 +1,112 @@
+@import "../../mixins.scss";
+
+.containerr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-block: 100px;
+  color: white;
+
+  .small-container {
+    background-color: #00204f;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 50px #0000001e;
+    border: 1px solid #5a525213;
+    
+    @include md {
+      padding: 20px 40px;
+    }
+
+    h1,p {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    span {
+      color: var(--pink);
+      cursor: pointer;
+    }
+    
+    .btn {
+      cursor: pointer;
+      display: inline-block;
+      width: 100%;
+      background-image: var(--gradient);
+      padding: 15px;
+      font-family: inherit;
+      font-size: 16px;
+      border: 0;
+      border-radius: 5px;
+      color: #fff;
+      
+      &:focus {
+        outline: 0;
+      }
+      
+      &:active {
+        transform: scale(0.98);
+      }
+
+      &:disabled {
+        background: #3a3a55e4 !important;
+        cursor: not-allowed;
+        color: #eeeeeeaa;
+      }
+    }
+
+    .text {
+      margin-top: 30px;
+    }
+
+    .form-control {
+      position: relative;
+      margin: 10px 0 40px;
+      width: 300px;
+      
+
+      @include md {
+        margin: 20px 0 40px;
+      }
+
+      &.hidden {
+        display: none;
+      }
+      input {
+        background-color: transparent;
+        border: 0;
+        border-bottom: 2px solid white;
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+        font-size: 15px;
+        color: #fff;
+        
+        &:focus,
+        &:valid {
+          outline: 0;
+          border-bottom-color: var(--pink);
+          background-color: transparent;
+        }
+
+        @include md {
+          font-size: 18px;
+        }
+      }
+      
+      label {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        font-size: 18px;
+        transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+      
+      .active-input + label {
+        color: var(--pink);
+        transform: translateY(-25px);
+      }
+    }
+  }
+}
